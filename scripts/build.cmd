@@ -34,8 +34,8 @@ py -3.12 -I make_game.py --game "%GAME%" --work "%OUT%\work" --out "%OUT%" ^
 echo EXIT=%ERRORLEVEL% >> "%OUT%\build.log"
 
 REM 3) a mesh-compute variant for GPUs without VK_EXT_mesh_shader (Intel iGPU class);
-REM    kept beside the base variant, the runtime picks per device
-REM py -3.12 -I make_game.py --game "%GAME%" --work "%OUT%\work" --out "%OUT%" ^
+REM    use separate Intel folders and probe the Intel device without an NVIDIA driver filter
+REM py -3.12 -I make_game.py --game "%GAME%" --work "%OUT%-intel\work" --out "%OUT%-intel" ^
 REM    --runtime-build "%OUT%\build" --stages shaders --mesh-compute --jobs 16 --no-tui
 
 REM 4) launch (offline by construction: the Winsock/WinHTTP shims)

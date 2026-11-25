@@ -47,8 +47,7 @@ archives, no executable, no shaders, no extracted assets, no traces that quote g
 
 ## Low-end GPU plan
 
-The project's own device-adaptive fallbacks are the mechanism, and the work folder keeps translation
-variants side by side so one build serves many GPUs:
+Use separate work and output folders to preserve both GPU builds. Changing fallback flags in one work folder invalidates its previous translation.
 
 | GPU class | What makes it work |
 |---|---|
@@ -58,8 +57,7 @@ variants side by side so one build serves many GPUs:
 | GPUs with low `maxPushConstantsSize` | `--pc-tail-ubo` (automatic when the runtime probe reports < 144 bytes) |
 | Missing barycentric / maintenance8 / float-controls features | `--bary-fallback`, `--texel-offset-fallback`, `--no-float-controls` (per-device, automatic) |
 
-The runtime picks the variant per device at run time (`LEONIDA_VK_DEVICE` pins a GPU on multi-GPU
-machines; we export `LEONIDA_VK_DEVICE=4050` so the Intel iGPU is never chosen by enumeration order).
+Pin the intended GPU for each build and test. Remove the NVIDIA-only driver filter before probing Intel. Neither GPU boot is verified yet.
 
 ## Launching (from `docs/first_run_ui.md`)
 
