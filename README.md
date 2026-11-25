@@ -89,6 +89,16 @@ shim refuses outbound requests, so the run stays offline by construction.
 - The project's rules: no game data in repos, no keys/decryption, nothing online
 - Asset-side toolkit list: <https://portwatch-vi.xyz/> (RPF9 explorers, texture codecs, format notes)
 
+## Credits
+
+- **[@spazman12](https://github.com/spazman12)** — machine setup, build runs, verification, and direction.
+- **Claude (DeepAI Code)** — AI assistant: code reading, scripting, triage and drafting. All work was
+  AI-assisted and human-run; commits are authored by @spazman12 with the assistant disclosed in messages.
+- Leonida by its authors (ItsNotRexed and the continuation's contributors) — the port, the tools, the docs.
+
+Future upstream contributions will follow the project's own process: claim in the coordination issue first,
+state that the work was AI-assisted, and say what was tested and on which GPU and driver.
+
 ## License / attribution
 
 Notes and scripts here are MIT. Leonida is GPLv3+ by its authors (ItsNotRexed and contributors;
